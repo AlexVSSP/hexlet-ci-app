@@ -10,7 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Setup Node 18.x
+        uses: actions/setup-node@v3
+        with:
+          bode-version: 18.x
+          cache: npm
       - run: npm install
       - run: npm run build
       - run: npm test
